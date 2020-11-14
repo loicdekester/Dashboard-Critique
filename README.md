@@ -13,6 +13,7 @@ A solution would be to do the authentication request using the HTTP verb POST. T
 On another note the protection against CSRF could be done with the PHP session cookie, “PHPSESSID” in this case. By setting the parameters HttpOnly to true and SameSite to Lax it would achieve something similar to what the token does. With those parameters, the cookie could not be accessible by JavaScript and only added to the request originated from third parties on “safe” requests, such as GET, HEAD and OPTIONS.
 
 Once authenticated a bearer token is stored in the HTML and used to authenticate the user for subsequent API calls.
+
 It is worthy to note that the stripe library tracks user clicks and URL visited. The request URL is https://m.stripe.com/6 and the payload is some base 64 encoded data. Nonetheless it is something to keep in mind when this library is updated to monitor what else is this script doing.
 
 ## Performance
@@ -40,5 +41,6 @@ From a UX perspective, the dashboard seems to lack information at first glance. 
 
 Another feature would be to not logout on reload or keep the session active rather than demand credentials at every visit.
 
+##
 
 In a nutshell there is a security concern regarding the authentication procedure, the performance could be improved by making less API calls and the UX/UI could improve with a couple a simple display changes.
